@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  selector: 'app-component',
+  template: `
+  <h1>Random Distribution </h1>
+  `,
 })
-export class AppComponent  { name = 'Angular'; }
+
+/**
+ * Primary component that is called from app the module. 
+ */
+export class AppComponent {  }
