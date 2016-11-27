@@ -4,6 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-component',
   template: `
   <h1>Random Distribution </h1>
+  <raw-view></raw-view>
+  <graph-view></graph-view>
+  <list-view></list-view>
   `,
 })
 
