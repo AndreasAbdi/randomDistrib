@@ -11,9 +11,10 @@ export class RandomService {
 
     /**
      * Generate a number between [0, limit].
-     * TODO 
+     * //TODO: does this need to be all values. 
      */
-    generateNumber(limit: number): number {
-        return 0;
+    generateNumber(limit: number): Promise<number> {
+        let generatedStub = Math.floor((Math.random() * limit));
+        return new Promise((resolve, reject) => resolve(generatedStub));
     }
 }
