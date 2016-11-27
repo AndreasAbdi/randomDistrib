@@ -1,4 +1,13 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "**/*.js": {"when": "$(basename).ts"}
+    // Files 
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/*.map": { "when": "$(basename).map" },
+        "**/*.js": { "when": "$(basename).ts"}
+    }
+
 }
