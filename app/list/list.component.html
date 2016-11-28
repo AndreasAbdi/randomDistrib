@@ -1,3 +1,33 @@
 <h2>
-    list view
+  list view
 </h2>
+<div class="probability-add">
+  <label> name </label>
+  <input #probabilityName type="text" ng-trim="true"/>
+  <label> chance </label>
+  <input #probabilityChance type="number" min="0" max="100" />
+  <button (click)="
+        addProbability(
+            probabilityName.value,
+            probabilityChance.value);
+        probabilityName.value = '';
+        probabilityChance.value = '';
+        ">
+        Add 
+    </button>
+</div>
+<ul class="distribution">
+  <li *ngFor="let probability of distribution">
+    <label> name:</label>
+    <span class="name">{{probability.name}}</span>
+    <label> probability: </label>
+    <span class="chance">{{probability.probability}}</span>
+  </li>
+</ul>
+<button (click)="decide()">
+  decide
+</button>
+<div *ngIf="currentDecision">
+  The current Decision is: {{currentDecision.name}}, 
+  which had a weighting of {{currentDecision.probability}} 
+</div>
