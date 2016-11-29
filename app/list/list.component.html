@@ -4,7 +4,7 @@
 <div class="probability-add">
   <label> name </label>
   <input #probabilityName type="text" ng-trim="true"/>
-  <label> chance </label>
+  <label> weight </label>
   <input #probabilityChance type="number" min="0" max="100" />
   <button (click)="
         addProbability(
@@ -20,7 +20,7 @@
   <li *ngFor="let probability of distribution">
     <label> name:</label>
     <span class="name">{{probability.name}}</span>
-    <label> probability: </label>
+    <label> weight: </label>
     <span class="chance">{{probability.probability}}</span>
   </li>
 </ul>
