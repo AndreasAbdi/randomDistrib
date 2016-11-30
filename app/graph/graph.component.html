@@ -2,6 +2,12 @@
     graph view
 </h2>
 
-<canvas #canvas>
-
-</canvas>
+<div> 
+  <canvas baseChart id="graph"
+              [data]="doughnutChartData"    
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              [options]="options"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+</div>
