@@ -16,9 +16,11 @@ export class GraphComponent implements OnInit, AfterViewInit {
     distribution: Probability[];
 
     // Doughnut
-    public doughnutChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-    public doughnutChartData: number[] = [350, 450, 100];
+    public doughnutChartLabels: string[] = [];
+    public doughnutChartData: number[] = [];
+
     public doughnutChartType: string = 'doughnut';
+
     public options = {
         responsive: true,
         maintainAspectRatio: false
@@ -43,14 +45,30 @@ export class GraphComponent implements OnInit, AfterViewInit {
     getDistribution(): void {
         this.distributionService
             .getDistribution()
-            .then(distribution => this.distribution = distribution);
+            .then(distribution => {
+                this.distribution = distribution;
+                this.doughnutChartLabels = distribution.map(value => value.name);
+                this.doughnutChartData = distribution.map(value => value.probability);
+
+            });
     }
 
+    updateGraph(probability: Probability): void {
+        const chartClone = this.distribution.slice(0);
+
+        this.doughnutChartLabels = chartClone.map(value => value.name);
+        this.doughnutChartData = chartClone.map(value => value.probability);
+    }
 
     ngAfterViewInit() {
     }
 
     ngOnInit() {
+        this.distributionService.dataChangedObservable.subscribe(
+            probability => {
+                this.updateGraph(probability);
+            }
+        );
         this.getDistribution();
     }
 }

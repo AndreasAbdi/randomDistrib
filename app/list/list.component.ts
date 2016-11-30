@@ -47,10 +47,11 @@ export class ListComponent implements OnInit {
 
     /**
      * Call the distribution service to remove an existing probability
-     * TODO
+     * 
      */
-    removeProbability(name: string): void {
-
+    removeProbability(probability: Probability): void {
+        this.distributionService
+            .deleteProbability(probability);
     }
 
     decide(): void {

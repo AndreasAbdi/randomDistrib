@@ -22,6 +22,7 @@
     <span class="name">{{probability.name}}</span>
     <label> weight: </label>
     <span class="chance">{{probability.probability}}</span>
+    <button (click)="removeProbability(probability)">X</button>
   </li>
 </ul>
 <button (click)="decide()">

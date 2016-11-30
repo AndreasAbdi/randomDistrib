@@ -4,8 +4,8 @@
 
 <div> 
   <canvas baseChart id="graph"
-              [data]="doughnutChartData"    
-              [labels]="doughnutChartLabels"
+              [(data)]="doughnutChartData"    
+              [(labels)]="doughnutChartLabels"
               [chartType]="doughnutChartType"
               [options]="options"
               (chartHover)="chartHovered($event)"
