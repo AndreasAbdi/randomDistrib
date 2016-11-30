@@ -32,16 +32,15 @@ export class ListComponent implements OnInit {
     /**
      * Call the distribution service to add a new probability. 
      */
-    addProbability(name: string, value: number): void {
+    addProbability(name: string, value: string): void {
         name = name.trim();
         if (!name) {
             return;
         }
 
         this.distributionService
-            .addProbability(new Probability(name, value))
+            .addProbability(new Probability(name, parseInt(value, 10)))
             .then(probability => {
-                // this.distribution.push(probability);
             });
     }
 

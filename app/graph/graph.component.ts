@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { DistributionService } from '../distribution-service/distribution.service';
 import { Probability } from '../data-type/probability';
 
@@ -25,6 +25,23 @@ export class GraphComponent implements OnInit, AfterViewInit {
         responsive: true,
         maintainAspectRatio: false
     };
+
+    public colors = [{
+        backgroundColor: [
+            '#b8436d',
+            '#00d9f9',
+            '#a4c73c',
+            '#a4add3',
+            '#F2FF00',
+            '#8800FF',
+            '#2FFF8A',
+            '#FF402F',
+            '#40A2FF',
+            '#FFB740',
+            '#6E80FF',
+            '#FFDE6E'
+        ]
+    }];
 
     constructor(
         private distributionService: DistributionService,
