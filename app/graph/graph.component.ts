@@ -28,9 +28,9 @@ export class GraphComponent implements OnInit, AfterViewInit {
 
     public colors = [{
         backgroundColor: [
-            '#b8436d',
-            '#00d9f9',
-            '#a4c73c',
+            '#96858F',
+            '#6D7993',
+            '#9099A2',
             '#a4add3',
             '#F2FF00',
             '#8800FF',

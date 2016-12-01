@@ -85,7 +85,7 @@ ul li::last-child {
     margin-right: 1vw;
   }
   .dist-container {
-      height: 40vh;
+      height: 60vh;
       overflow-y: scroll;  
   }
   .probability-add {
@@ -129,4 +129,9 @@ ul li::last-child {
 
 }
 
-@media only screen and (min-width:1000px) {}
+@media only screen and (min-width:1000px) {
+    .dist-container {
+      height: 40vh;
+      overflow-y: scroll;  
+  }
+}
