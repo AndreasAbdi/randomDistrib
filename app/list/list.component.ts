@@ -6,7 +6,8 @@ import { Probability } from '../data-type/probability';
 @Component({
     moduleId: module.id,
     selector: 'list-view',
-    templateUrl: 'list.component.html'
+    templateUrl: 'list.component.html',
+    styleUrls: ['list.component.css']
 })
 
 /**

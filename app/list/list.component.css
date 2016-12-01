@@ -1,0 +1,45 @@
+:host {
+    background-color: #6D7993;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    border:  0.01vw solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+ul li::last-child {
+    border-bottom: none;
+}
+
+li {
+    margin: 2vw 0 2vw 0;
+    border-bottom: 0.01vw solid #ddd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.probability-add {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width:300px) {
+
+}
+
+@media only screen and (min-width:700px) {
+  :host {
+    float: left;
+    width: 30vw;
+    height: 90vh;
+  }
+
+}
+
+@media only screen and (min-width:1000px) {
+}
+

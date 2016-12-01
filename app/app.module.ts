@@ -5,7 +5,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { DistributionService } from './distribution-service/distribution.service'; 
 import { RandomService } from './random-service/random.service';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app/app.component';
 import { RawComponent } from './raw/raw.component';
 import { ListComponent } from './list/list.component';
 import { GraphComponent } from './graph/graph.component';

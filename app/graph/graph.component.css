@@ -1,4 +1,44 @@
+#graph-component-container {
+  background-color: #6D7993;
+}
+
 #graph {
+  background-color: #d5d5d5;
   display: block;
-  width: 30%;
+}
+
+.header {
+  padding: 1vmin, 1vmin, 1vmin, 2vmin;
+  width: 100%;
+}
+
+@media only screen and (min-width:300px) {
+  :host {
+    background-color: greenyellow;
+  }
+
+  .graph-container {
+    height: 40vh;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width:700px) {
+  :host {
+    float: left;
+    width: 70vw;
+    height: 90vh;
+  }
+
+  .graph-container {
+    width: 70vw;
+    height: 80vh;
+  }
+  
+  .header {
+    height: 10vh;
+  }
+}
+
+@media only screen and (min-width:1000px) {
 }
