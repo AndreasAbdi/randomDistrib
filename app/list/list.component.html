@@ -1,9 +1,17 @@
 <h2>
   list view
 </h2>
+<div class="decision-box">
+  <button (click)="decide()">
+  decide
+</button>
+  <div *ngIf="currentDecision" class="result-box">
+    {{currentDecision.name}}
+  </div>
+</div>
 <div class="probability-add">
   <label> name </label>
-  <input #probabilityName type="text" ng-trim="true"/>
+  <input #probabilityName type="text" ng-trim="true" />
   <label> weight </label>
   <input #probabilityChance type="number" min="0" max="100" />
   <button (click)="
@@ -16,19 +24,20 @@
         Add 
     </button>
 </div>
-<ul class="distribution">
-  <li *ngFor="let probability of distribution">
-    <label> name:</label>
-    <span class="name">{{probability.name}}</span>
-    <label> weight: </label>
-    <span class="chance">{{probability.probability}}</span>
-    <button (click)="removeProbability(probability)">X</button>
-  </li>
-</ul>
-<button (click)="decide()">
-  decide
-</button>
-<div *ngIf="currentDecision">
-  The current Decision is: {{currentDecision.name}}, 
-  which had a weighting of {{currentDecision.probability}} 
+<div class="dist-container">
+  <ul class="distribution">
+    <li *ngFor="let probability of distribution" class="slice">
+      <div class="information">
+        <div class="info-box">
+          <label> name:</label>
+          <span class="name">{{probability.name}}</span>
+        </div>
+        <div class="info-box">
+          <label> weight: </label>
+          <span class="chance">{{probability.probability}}</span>
+        </div>
+      </div>
+      <button (click)="removeProbability(probability)">X</button>
+    </li>
+  </ul>
 </div>

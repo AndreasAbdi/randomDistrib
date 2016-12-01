@@ -1,45 +1,107 @@
-:host {
-    background-color: #6D7993;
-}
-
 ul {
-    list-style: none;
-    padding: 0;
-    border:  0.01vw solid #ddd;
-    display: flex;
-    flex-direction: column;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 ul li::last-child {
-    border-bottom: none;
-}
-
-li {
-    margin: 2vw 0 2vw 0;
-    border-bottom: 0.01vw solid #ddd;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  border-bottom: none;
 }
 
 .probability-add {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @media only screen and (min-width:300px) {
-
+  :host {
+    background-color: #9099A2;
+    height: 40vh;
+    width: 100vw;
+  }
+  h2 {
+    text-align: center;
+    margin-top: 1vh;
+  }
+  button {
+    width: 100%;
+    padding: 0 2vw 0 2vw;
+  }
+  .decision-box {
+    margin: 3vmin;
+  }
+  .result-box {
+    background-color: #96858F;
+    width: 94vw;
+    text-align: center;
+    margin-top: 1vh;
+  }
+  .probability-add {
+    padding: 2vmin;
+    margin: 1vmin;
+  }
+  .slice {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 3vw 3vw 3vw;
+  }
+  .slice .information {
+    width: 80vw;
+  }
+  .slice button {
+    min-height: 50px;
+    min-width: 50px;
+    width: 14vw;
+    border: 1vw #9099A2 solid;
+  }
+  
+  .dist-container {
+      height: 30vh;
+      overflow-y: scroll;  
+  }
 }
 
 @media only screen and (min-width:700px) {
-  :host {
-    float: left;
-    width: 30vw;
+   :host {
+    float: right;
+    margin-left: 1vw;
+    width: 28vw;
     height: 90vh;
+    margin-top: 5vw;
+  }
+  .probability-add {
+    padding: 2vh 0 1vw 2vh;
+    border-top: 0.1vmin #D5D5D5 solid;
+    border-bottom: 0.1vmin #D5D5D5 solid;
+    margin-bottom: 1vh;
+  }
+  .probability-add button {
+    margin-top: 1vh;
+  }
+  .decision-box {
+    margin: 2vh 0 1vw 2vh;
+  }
+  .slice {
+    border: 0.1vmin #D5D5D5 solid;
+  }
+  .slice button {
+    margin-right: 1vw;
+    margin-top: 0.5vh;
+    width: 5vw;
+    height: 5vh;
+    min-height: 50px;
+    min-width: 50px;
+  }
+  .info-box label {
+    color: #D5D5D5;
+    margin-left: 0.5vw;
+  }
+  input {
+    margin-right: 1vw;
   }
 
 }
 
-@media only screen and (min-width:1000px) {
-}
-
+@media only screen and (min-width:1000px) {}

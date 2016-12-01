@@ -1,7 +1,4 @@
 <div id="graph-component-container">
-  <h2 class="header">
-    graph view
-  </h2>
   <div class="graph-container">
     <canvas baseChart id="graph" [(data)]="doughnutChartData" [(labels)]="doughnutChartLabels" [chartType]="doughnutChartType"
       [options]="options" [colors]="colors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
