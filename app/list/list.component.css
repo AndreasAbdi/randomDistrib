@@ -85,7 +85,7 @@ ul li::last-child {
     margin-right: 1vw;
   }
   .dist-container {
-      height: 50vh;
+      height: 40vh;
       overflow-y: scroll;  
   }
   .probability-add {
@@ -100,6 +100,14 @@ ul li::last-child {
   }
   .decision-box {
     margin: 2vh 0 1vw 2vh;
+  }
+  .result-box {
+    background-color: #D5D5D5;
+    width: 24vw;
+    text-align: center;
+    margin-top: 1vh;
+    margin-left: 1vw;
+  
   }
   .slice {
     border: 0.1vmin #D5D5D5 solid;
