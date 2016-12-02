@@ -13,9 +13,16 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["random", "distribution"],
+  "author": "Andreas Abdi",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndreasAbdi/randomDistrib"
+  },
+  "bugs": {
+    "url": "https://github.com/AndreasAbdi/randomDistrib/issues"
+  },
   "dependencies": {
     "@angular/common": "~2.2.0",
     "@angular/compiler": "~2.2.0",
@@ -39,7 +46,7 @@
     "lite-server": "^2.2.2",
     "typescript": "^2.0.10",
     "typings": "^2.0.0",
-    
+
     "canonical-path": "0.0.2",
     "http-server": "^0.9.0",
     "tslint": "^3.15.1",
@@ -54,12 +61,11 @@
     "protractor": "4.0.9",
     "webdriver-manager": "10.2.5",
     "rimraf": "^2.5.4",
-    
+
     "@types/angular": "^1.5.16",
     "@types/jquery": "^2.0.33",
     "@types/node": "^6.0.46",
     "@types/jasmine": "^2.5.36",
     "@types/selenium-webdriver": "^2.53.33"
-  },
-  "repository": {}
+  }
 }
