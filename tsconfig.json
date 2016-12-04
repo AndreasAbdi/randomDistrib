@@ -3,15 +3,23 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
+    "declaration": false,
+    "stripInternal": true, 
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [ "es2015", "dom" ],
+    "types": [
+      "node"
+    ],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },
   "exclude": [
     "node_modules/*",
+    "typings/*",
+    "dist/*",
     "**/*-aot.ts"
   ]
 }
