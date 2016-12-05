@@ -7,4 +7,4 @@ var Probability = (function () {
     return Probability;
 }());
 exports.Probability = Probability;
-//# sourceMappingURL=Probability.js.map
+//# sourceMappingURL=probability.js.map

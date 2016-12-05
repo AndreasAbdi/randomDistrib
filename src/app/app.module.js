@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var ng2_charts_1 = require('ng2-charts/ng2-charts');
-var distribution_service_1 = require('./distribution-service/distribution.service');
-var random_service_1 = require('./random-service/random.service');
-var app_component_1 = require('./app/app.component');
-var raw_component_1 = require('./raw/raw.component');
-var list_component_1 = require('./list/list.component');
-var graph_component_1 = require('./graph/graph.component');
+var distribution_service_1 = require('../distribution-service/distribution.service');
+var random_service_1 = require('../random-service/random.service');
+var app_component_1 = require('../app/app.component');
+var raw_component_1 = require('../raw/raw.component');
+var list_component_1 = require('../list/list.component');
+var graph_component_1 = require('../graph/graph.component');
 var AppModule = (function () {
     function AppModule() {
     }
