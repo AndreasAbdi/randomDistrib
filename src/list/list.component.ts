@@ -4,10 +4,9 @@ import { RandomService } from '../random-service/random.service';
 import { Probability } from '../data-type/probability';
 
 @Component({
-    moduleId: module.id,
     selector: 'list-view',
-    templateUrl: 'list.component.html',
-    styleUrls: ['list.component.css']
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.css']
 })
 
 /**

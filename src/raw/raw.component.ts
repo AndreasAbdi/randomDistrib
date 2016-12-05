@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RandomService } from '../random-service/random.service';
 
 @Component({
-    moduleId: module.id,
     selector: 'raw-view',
-    templateUrl: 'raw.component.html'
+    templateUrl: './raw.component.html'
 })
 
 /**

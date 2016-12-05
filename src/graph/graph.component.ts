@@ -3,10 +3,9 @@ import { DistributionService } from '../distribution-service/distribution.servic
 import { Probability } from '../data-type/probability';
 
 @Component({
-    moduleId: module.id,
     selector: 'graph-view',
-    templateUrl: 'graph.component.html',
-    styleUrls: ['graph.component.css']
+    templateUrl: './graph.component.html',
+    styleUrls: ['./graph.component.css']
 })
 
 /**

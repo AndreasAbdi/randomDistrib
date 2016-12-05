@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Probability } from '../data-type/Probability';
 import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable'; 
 
 let data: Probability[] = [
     { name: `first`, probability: 50 },
