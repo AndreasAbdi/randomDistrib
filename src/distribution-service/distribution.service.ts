@@ -4,8 +4,8 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable'; 
 
 let data: Probability[] = [
-    { name: `first`, probability: 50 },
-    { name: `second`, probability: 20 }
+    { name: `LOL`, probability: 50 },
+    { name: `OW`, probability: 50 }
 ];
 
 /**

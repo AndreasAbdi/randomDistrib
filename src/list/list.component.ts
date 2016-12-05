@@ -38,8 +38,17 @@ export class ListComponent implements OnInit {
             return;
         }
 
+        let targetValue = 0;
+        value = value.trim();
+        if (value) {
+            targetValue = parseInt(value, 10);
+            if (targetValue < 0) {
+                targetValue = 0;
+            }
+        }
+
         this.distributionService
-            .addProbability(new Probability(name, parseInt(value, 10)))
+            .addProbability(new Probability(name, targetValue))
             .then(probability => {
             });
     }

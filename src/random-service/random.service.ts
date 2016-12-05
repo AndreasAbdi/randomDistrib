@@ -56,7 +56,6 @@ export class RandomService {
 
     /**
      * Generate a number between [0, limit].
-     * //TODO: does this need to be all values. 
      */
     generateNumber(limit: number): Promise<number> {
         let generatedStub = Math.floor((Math.random() * limit));
