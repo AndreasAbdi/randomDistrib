@@ -24,14 +24,14 @@
     "url": "https://github.com/AndreasAbdi/randomDistrib/issues"
   },
   "dependencies": {
-    "@angular/common": "~2.2.0",
-    "@angular/compiler": "~2.2.0",
-    "@angular/core": "~2.2.0",
-    "@angular/forms": "~2.2.0",
-    "@angular/http": "~2.2.0",
-    "@angular/platform-browser": "~2.2.0",
-    "@angular/platform-browser-dynamic": "~2.2.0",
-    "@angular/router": "~3.2.0",
+    "@angular/common": "~2.2.1",
+    "@angular/compiler": "~2.2.1",
+    "@angular/core": "~2.2.1",
+    "@angular/forms": "~2.2.1",
+    "@angular/http": "~2.2.1",
+    "@angular/platform-browser": "~2.2.1",
+    "@angular/platform-browser-dynamic": "~2.2.1",
+    "@angular/router": "~3.2.1",
     "angular-in-memory-web-api": "~0.1.15",
     "ng2-charts": "~1.4.1",
     "chart.js": "~2.4.0",
@@ -39,6 +39,7 @@
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
+    "ts-helpers": "^1.1.1",
     "zone.js": "^0.6.26"
   },
   "devDependencies": {
@@ -46,6 +47,10 @@
     "lite-server": "^2.2.2",
     "typescript": "^2.0.10",
     "typings": "^2.0.0",
+
+    "angular-cli": "1.0.0-beta.21",
+    "@angular/compiler-cli": "2.2.1",
+    "codelyzer": "~1.0.0-beta.3",
 
     "canonical-path": "0.0.2",
     "http-server": "^0.9.0",
