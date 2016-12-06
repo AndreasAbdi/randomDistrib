@@ -17,9 +17,7 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "mobile": false,
-      "styles": [
-        "styles.css"
-      ],
+      "styles": [],
       "scripts": [],
       "environments": {
         "source": "environments/environment.ts",
@@ -32,12 +30,12 @@
   "packages": [],
   "e2e": {
     "protractor": {
-      "config": "./protractor.conf.js"
+      "config": "./configs/protractor.conf.js"
     }
   },
   "test": {
     "karma": {
-      "config": "./karma.conf.js"
+      "config": "./configs/karma.conf.js"
     }
   },
   "defaults": {
