@@ -32,7 +32,7 @@ export class SocketService {
     }
 
     emitEvent(): void {
-        this.socket.emit('flip', {some: 'arg'});
+        this.socket.emit('chat message', 'a message');
     }
 
     private init(): void {
