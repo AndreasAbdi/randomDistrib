@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import * as io from "socket.io-client";
 
 import { Observable } from 'rxjs/Observable';
 import '../shared/rxjs-operators';
@@ -15,11 +16,21 @@ export class SocketService {
             .catch(this.handleError);
     }
 
+    getServer(): Observable<string> {
+        return this.http.get('./assets/server.json')
+        .map(this.getDatabase)
+        .catch(this.handleError);
+    }
+
     private extractData(response: Response) {
-        const body = response.toString();
+        const body = response.text();
         return body || {};
     }
 
+    private getDatabase(response: Response) {
+        const body = response.json();
+        return body ? body.url : {};
+    }
     private handleError(error: Response | any) {
         let errMsg: string;
         if (error instanceof Response) {

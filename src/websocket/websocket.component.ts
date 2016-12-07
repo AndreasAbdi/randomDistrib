@@ -10,7 +10,7 @@ export class WebsocketComponent implements OnInit {
     constructor(private SocketService: SocketService) { }
 
     changeVal(): void {
-        this.SocketService.getData().subscribe(
+        this.SocketService.getServer().subscribe(
             data => this.datablock = data,
             error => { },
         );
