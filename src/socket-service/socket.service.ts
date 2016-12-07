@@ -4,48 +4,71 @@ import * as io from 'socket.io-client';
 
 import { Observable } from 'rxjs/Observable';
 import '../shared/rxjs-operators';
+import { Probability } from '../data-type/Probability';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class SocketService {
-    serverUrl: string;
+    private serverUrl: string;
     private socket: SocketIOClient.Socket;
+
+    private distributionChangeSource = new Subject<Probability>();
+    private distributionListSource = new Subject<Probability[]>();
+
+    distributionListObservable = this.distributionListSource.asObservable();
+    dataChangedObservable = this.distributionChangeSource.asObservable();
 
     constructor(private http: Http) {
         this.init();
     }
 
-    getData(): Observable<string> {
-        return this.http.get('./assets/data.json')
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
-
-    getServer(): Observable<string> {
-        return this.http.get('./assets/server.json')
-            .map(this.getDatabase)
-            .catch(this.handleError)
-            ;
-    }
-
-    initiateSocket(): void {
-        this.socket = io.connect(this.serverUrl);
-    }
-
     emitEvent(): void {
-        this.socket.emit('chat message', 'a message');
+        this.socket.emit('chat-message', 'a message');
+    }
+
+    addSlice(probability: Probability): void {
+        this.socket.emit('add-slice', probability);
+    }
+
+    removeSlice(probability: Probability): void {
+        this.socket.emit('remove-slice', probability);
+    }
+
+    //emit to websocket a list call event.
+    list(): void {
+        this.socket.emit('list');
     }
 
     private init(): void {
-        this.getServer().subscribe(
-            url => this.serverUrl = url,
-            error => { }
-        );
+        this
+            .getServer()
+            .then(
+            serverUrl => {
+                this.serverUrl = serverUrl;
+                this.initiateSocket();
+            }
+            );
     }
 
-    private extractData(response: Response) {
-        const body = response.text();
-        return body || {};
+    private getServer(): Promise<string> {
+        return this
+            .http
+            .get('./assets/server.json')
+            .map(this.getDatabase)
+            .toPromise()
+            .catch(this.handleError);
     }
+
+    private initiateSocket(): void {
+        this.socket = io.connect(this.serverUrl);
+        this.socket.on('list', (item) => {
+            let x: Probability[] = item;
+            console.log(x);
+            this.distributionListSource.next(x);
+        });
+        this.socket.emit('list');
+    }
+
 
     private getDatabase(response: Response) {
         const body = response.json();

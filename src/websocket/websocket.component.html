@@ -14,21 +14,30 @@
     <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
   </div>
 </div>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
-      <p>{{datablock}}</p>
-    </div>
-    <div class="col-md-4">
-      <button class="btn btn-primary btn-block" (click)="changeVal()">
-        change value
-      </button>
-      <button class="btn btn-primary btn-block" (click)="connect()">
-         connect To server
+    <div class="col-md-3">
+      <button class="btn btn-primary btn-block" (click)="list()">
+         list probability
       </button>
       <button class="btn btn-primary btn-block" (click)="emit()">
          emit event
       </button>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <ul class="list-group" style="height: 100%; overflow-y: auto">
+        <li *ngFor="let probability of probabilities" class="list-group-item">
+          <div class="ml-1" style="display:inline">
+            {{probability.name}}
+          </div>
+          <span class="tag tag-default float-xs-left">
+            {{probability.probability}}
+          </span>
+          <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
