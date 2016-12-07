@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import * as io from "socket.io-client";
+import * as io from 'socket.io-client';
 
 import { Observable } from 'rxjs/Observable';
 import '../shared/rxjs-operators';
 
 @Injectable()
 export class SocketService {
+    serverUrl: string;
+    private socket: SocketIOClient.Socket;
 
-    constructor(private http: Http) { }
+    constructor(private http: Http) {
+        this.init();
+    }
 
     getData(): Observable<string> {
         return this.http.get('./assets/data.json')
@@ -18,8 +22,24 @@ export class SocketService {
 
     getServer(): Observable<string> {
         return this.http.get('./assets/server.json')
-        .map(this.getDatabase)
-        .catch(this.handleError);
+            .map(this.getDatabase)
+            .catch(this.handleError)
+            ;
+    }
+
+    initiateSocket(): void {
+        this.socket = io.connect(this.serverUrl);
+    }
+
+    emitEvent(): void {
+        this.socket.emit('flip', {some: 'arg'});
+    }
+
+    private init(): void {
+        this.getServer().subscribe(
+            url => this.serverUrl = url,
+            error => { }
+        );
     }
 
     private extractData(response: Response) {
@@ -31,6 +51,7 @@ export class SocketService {
         const body = response.json();
         return body ? body.url : {};
     }
+
     private handleError(error: Response | any) {
         let errMsg: string;
         if (error instanceof Response) {

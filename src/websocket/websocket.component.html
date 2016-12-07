@@ -15,13 +15,20 @@
   </div>
 </div>
 <div class="container">
-    <div class = "row">
-        <div class="col-md-4">
-            <p>{{datablock}}</p>
-        </div>
-        <div class="col-md-4">
-            <button class="btn btn-primary" (click)="changeVal()">changeVal</button>
-        </div>    
+  <div class="row">
+    <div class="col-md-4">
+      <p>{{datablock}}</p>
     </div>
-    
+    <div class="col-md-4">
+      <button class="btn btn-primary btn-block" (click)="changeVal()">
+        change value
+      </button>
+      <button class="btn btn-primary btn-block" (click)="connect()">
+         connect To server
+      </button>
+      <button class="btn btn-primary btn-block" (click)="emit()">
+         emit event
+      </button>
+    </div>
+  </div>
 </div>

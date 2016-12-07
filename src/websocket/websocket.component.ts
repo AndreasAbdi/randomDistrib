@@ -10,10 +10,18 @@ export class WebsocketComponent implements OnInit {
     constructor(private SocketService: SocketService) { }
 
     changeVal(): void {
-        this.SocketService.getServer().subscribe(
+        this.SocketService.getData().subscribe(
             data => this.datablock = data,
             error => { },
         );
+    }
+
+    connect(): void {
+        this.SocketService.initiateSocket();
+    }
+
+    emit(): void {
+        this.SocketService.emitEvent();
     }
     ngOnInit() { }
 }
