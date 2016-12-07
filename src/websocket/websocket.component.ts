@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SocketService } from '../socket-service/socket.service';
 
 @Component({
     selector: 'websocket',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WebsocketComponent implements OnInit {
     datablock: string = 'sdfsdf';
-    constructor() { }
+    constructor(private SocketService: SocketService) { }
 
     changeVal(): void {
-        this.datablock = 'value has been changed';
+        this.SocketService.getData().subscribe(
+            data => this.datablock = data,
+            error => { },
+        );
     }
     ngOnInit() { }
 }

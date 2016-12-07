@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { HttpModule } from '@angular/http';
 import { DistributionService } from '../distribution-service/distribution.service'; 
 import { RandomService } from '../random-service/random.service';
 import { SocketService } from '../socket-service/socket.service';
@@ -17,6 +17,7 @@ import { WebsocketComponent } from '../websocket/websocket.component';
   imports: [
     BrowserModule,
     ChartsModule,
+    HttpModule,
     NgbModule.forRoot()
     ],
   declarations: [
