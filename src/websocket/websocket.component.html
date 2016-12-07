@@ -1,3 +1,27 @@
-<h1>
-    This is the websocket component.
-</h1>
+<nav class="navbar navbar-static-top navbar-dark bg-inverse">
+  <a class="navbar-brand" href="#">Random Selector</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    </li>
+  </ul>
+</nav>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Hello, world!</h1>
+    <p>this is to test sockets</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+  </div>
+</div>
+<div class="container">
+    <div class = "row">
+        <div class="col-md-4">
+            <p>{{datablock}}</p>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary" (click)="changeVal()">changeVal</button>
+        </div>    
+    </div>
+    
+</div>
