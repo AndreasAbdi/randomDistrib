@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SocketService } from '../socket-service/socket.service';
-import { Probability } from '../data-type/probability';
+import Probability from '../data-type/probability';
 @Component({
     selector: 'websocket',
     templateUrl: './websocket.component.html'
@@ -16,6 +16,19 @@ export class WebsocketComponent implements OnInit {
     emit(): void {
         this.socketService.emitEvent();
     }
+
+    decide(): void {
+        this.socketService.decide(this.probabilities);
+    }
+
+    addSlice(name: string, weight: string): void {
+        this.socketService.addSlice(new Probability(name, parseInt(weight, 10)));
+    }
+
+    removeSlice(probability: Probability): void {
+        this.socketService.removeSlice(probability);
+    }
+
     ngOnInit() {
         this.socketService.distributionListObservable.subscribe(
             (probabilities) => {

@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { DistributionService } from '../distribution-service/distribution.service';
-import { Probability } from '../data-type/probability';
+import  Probability  from '../data-type/probability';
 
 @Component({
     selector: 'graph-view',
@@ -64,7 +64,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
             .then(distribution => {
                 this.distribution = distribution;
                 this.doughnutChartLabels = distribution.map(value => value.name);
-                this.doughnutChartData = distribution.map(value => value.probability);
+                this.doughnutChartData = distribution.map(value => value.weight);
 
             });
     }
@@ -73,7 +73,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
         const chartClone = this.distribution.slice(0);
 
         this.doughnutChartLabels = chartClone.map(value => value.name);
-        this.doughnutChartData = chartClone.map(value => value.probability);
+        this.doughnutChartData = chartClone.map(value => value.weight);
     }
 
     ngAfterViewInit() {

@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Probability } from '../data-type/Probability';
+import Probability from '../data-type/Probability';
 import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable'; 
+import { Observable } from 'rxjs/Observable';
 
-let data: Probability[] = [
-    { name: `LOL`, probability: 50 },
-    { name: `OW`, probability: 50 }
-];
+let data: Probability[] = [];
 
 /**
  * compose the distribution for the random generator service.
@@ -24,8 +21,8 @@ export class DistributionService {
 
     getTotalWeight(): Promise<number> {
         return new Promise(resolve => data.reduce((a, b) =>
-            new Probability('', a.probability + b.probability))
-            .probability);
+            new Probability('', a.weight + b.weight))
+            .weight);
     }
 
     addProbability(probability: Probability): Promise<Probability> {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DistributionService } from '../distribution-service/distribution.service';
 import { RandomService } from '../random-service/random.service';
-import { Probability } from '../data-type/probability';
+import  Probability  from '../data-type/probability';
 
 @Component({
     selector: 'list-view',

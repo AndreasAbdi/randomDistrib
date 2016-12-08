@@ -1,10 +1,9 @@
-
-export class Probability {
+export default class Probability {
     name: string;
-    probability: number;
+    weight: number;
 
-    constructor(name: string, probability: number) {
+    constructor(name: string, weight: number) {
         this.name = name;
-        this.probability = probability;
+        this.weight = weight;
     }
 }

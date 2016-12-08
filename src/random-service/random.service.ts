@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Probability } from '../data-type/probability';
+import  Probability  from '../data-type/probability';
 
 const add = (first: Probability, second: Probability) =>
     new Probability(
         second.name,
-        first.probability + second.probability);
+        first.weight + second.weight);
 
 function toCumulativeDistribution(
     distribution: Probability[]): Probability[] {
@@ -20,9 +20,9 @@ function getLocationOnDistribution(
     return cumulativeDistribution
         .filter(
         (value, index, array) => {
-            return value.probability >=
+            return value.weight >=
                 array[array.length - 1]
-                    .probability * target;
+                    .weight * target;
         })
     [0];
 }
