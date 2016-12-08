@@ -13,6 +13,8 @@ import { ListComponent } from '../list/list.component';
 import { GraphComponent } from '../graph/graph.component';
 import { WebsocketComponent } from '../websocket/websocket.component';
 
+import {ReversePipe } from '../websocket/reverse.pipe';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { WebsocketComponent } from '../websocket/websocket.component';
     RawComponent,
     ListComponent,
     GraphComponent,
-    WebsocketComponent
+    WebsocketComponent,
+    ReversePipe
   ],
   providers: [
     DistributionService,

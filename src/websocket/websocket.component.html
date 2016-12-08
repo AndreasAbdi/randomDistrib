@@ -19,29 +19,42 @@
       <div class="btn-group-vertical" style="width: 100%">
         <button class="btn btn-primary btn-block" (click)="decide()">
          Decide
-      </button>
+        </button>
         <button class="btn btn-primary btn-block" (click)="list()">
          list probability
-      </button>
+        </button>
         <button class="btn btn-primary btn-block" (click)="emit()">
          emit event
-      </button>
+        </button>
       </div>
-      <form style="margin-top: 1vh; margin-bottom: 1vh">
+      <form onsubmit="return false" style="margin-top: 1vh; margin-bottom: 1vh">
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" class="form-control" #name placeholder="Enter name" required/>
         </div>
         <div class="form-group">
           <label for="weight">Weight</label>
-          <input type="number" 
-          min="0" max="100" 
-          class="form-control" 
-          #weight
-          placeholder="Enter Weight" required/>
+          <input type="number" min="0" max="100" class="form-control" #weight placeholder="Enter Weight" required/>
         </div>
-        <button type="button" class="btn btn-primary btn-block" (click)="addSlice(name.value,weight.value)">Add Slice</button>
-      </form>
+        <button  class="btn btn-primary btn-block" (click)="addSlice(name.value,weight.value)">Add Slice</button>
+      </form >
+      <div class="card">
+        <div class="card-header">
+          <button class="btn btn-secondary" (click)="isCollapsed = !isCollapsed">Toggle Results</button>
+        </div>
+        <div class="card-block" [ngbCollapse]="isCollapsed">
+          <ul class="list-group result-view" style="height: 20vh; overflow-y: scroll">
+            <li *ngFor="let probability of results.slice().reverse(); let index=index" class="list-group-item" [class.active]="index==0">
+              <div class="ml-1" style="display:inline">
+                {{probability.name}}
+              </div>
+              <span class="tag tag-default float-xs-left">
+                {{probability.weight}}
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="col-md-6 offset-md-1">
       <div *ngIf="!probabilities">

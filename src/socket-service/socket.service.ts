@@ -12,11 +12,11 @@ export class SocketService {
     private serverUrl: string;
     private socket: SocketIOClient.Socket;
 
-    private distributionChangeSource = new Subject<Probability>();
+    private distributionResultSource = new Subject<Probability>();
     private distributionListSource = new Subject<Probability[]>();
 
     distributionListObservable = this.distributionListSource.asObservable();
-    distributionChangedObservable = this.distributionChangeSource.asObservable();
+    distributionResultObservable = this.distributionResultSource.asObservable();
 
     constructor(private http: Http) {
         this.init();
@@ -34,13 +34,12 @@ export class SocketService {
         this.socket.emit('remove-slice', probability);
     }
 
-    // emit to websocket a list call event.
     list(): void {
         this.socket.emit('list');
     }
 
-    decide(Probability: Probability[]): void {
-        this.socket.emit('decide');
+    decide(probabilities: Probability[]): void {
+        this.socket.emit('decide', probabilities);
     }
 
     private init(): void {
@@ -65,13 +64,20 @@ export class SocketService {
 
     private initiateSocket(): void {
         this.socket = io.connect(this.serverUrl);
-        this.attachListener();
+        this.attachListListener();
+        this.attachDecisionListener();
         this.list();
     }
 
-    private attachListener(): void {
-        this.socket.on('list', (a) => {
-            this.distributionListSource.next(a);
+    private attachListListener(): void {
+        this.socket.on('list', (distribution) => {
+            this.distributionListSource.next(distribution);
+        });
+    }
+
+    private attachDecisionListener(): void {
+        this.socket.on('decision', (probability) => {
+            this.distributionResultSource.next(probability);
         });
     }
 
