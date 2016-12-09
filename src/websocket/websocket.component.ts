@@ -11,7 +11,7 @@ export class WebsocketComponent implements OnInit {
     probabilities: Probability[];
     results: Probability[] = [];
     currentRoom: string;
-    roomList: any[];
+    roomList: string[] = [];
 
     public isCollapsed = false;
 
@@ -42,6 +42,13 @@ export class WebsocketComponent implements OnInit {
         this.socketService.removeSlice(probability);
     }
 
+    joinOrCreate(roomName: string): void {
+        if (!roomName || roomName.length <= 0) {
+            return;
+        }
+        this.socketService.joinRoom(roomName);
+        this.socketService.listRooms();
+    }
     ngOnInit() {
         this.subscribeToListObservable();
         this.subscribeToDecisionObservable();
@@ -51,18 +58,17 @@ export class WebsocketComponent implements OnInit {
 
     private subscribeToRoomListObservable(): void {
         this.socketService.roomListObservable.subscribe(
-            (roomList) => {
-                this.roomList = roomList;
-            }
-        )
+            (roomList) => { this.roomList = roomList; }
+        );
     }
+
 
     private subscribeToCurrentRoomObservable(): void {
         this.socketService.currentRoomObservable.subscribe(
             (currentRoomName) => {
                 this.currentRoom = currentRoomName;
             }
-        )
+        );
     }
 
     private subscribeToDecisionObservable(): void {

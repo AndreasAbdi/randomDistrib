@@ -52,6 +52,7 @@ export class SocketService {
 
     joinRoom(roomName: string): void {
         this.socket.emit('join-room', roomName);
+        this.list();
     }
 
     private init(): void {
@@ -76,16 +77,26 @@ export class SocketService {
 
     private initiateSocket(): void {
         this.socket = io.connect(this.serverUrl);
+        this.attachListeners();
+        this.updateData();
+    }
+
+    private attachListeners(): void {
         this.attachListListener();
         this.attachDecisionListener();
         this.attachCurrentRoomListener();
         this.attachRoomListListener();
+    }
+
+    private updateData(): void {
         this.list();
+        this.listRooms();
+        this.joinRoom('default');
     }
 
     private attachRoomListListener(): void {
         this.socket.on('list-room', (roomNames) => {
-            this.currentRoomSource.next(roomNames);
+            this.roomListSource.next(roomNames);
         });
     }
 
