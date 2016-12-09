@@ -8,6 +8,7 @@ import Probability from '../data-type/probability';
 })
 export class ResultComponent implements OnInit {
     results: Probability[] = [];
+    currentResult: Probability;
     isCollapsed = true;
 
     constructor(private socketService: SocketService) { }
@@ -24,6 +25,7 @@ export class ResultComponent implements OnInit {
         this.socketService.distributionResultObservable.subscribe(
             (probability) => {
                 this.results.push(probability);
+                this.currentResult = probability;
             }
         );
     }

@@ -1,20 +1,15 @@
-<button class="btn btn-primary btn-block" (click)="decide()">
-  Decide
-</button>
-<div class="card">
-  <div class="card-header">
-    <button class="btn btn-secondary" (click)="isCollapsed = !isCollapsed">Show Results</button>
+<form class="form-inline float-xs-right">
+  <div ngbDropdown class="d-inline-block" *ngIf="currentResult">
+    <button class="btn btn-danger" id="dropdownMenu1" ngbDropdownToggle>
+        {{currentResult.name}}
+      </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <div class="dropdown-item" *ngFor="let result of results">
+        {{result.name}}
+      </div>
+    </div>
   </div>
-  <div class="card-block" [ngbCollapse]="isCollapsed">
-    <ul class="list-group result-view" style="height: 10vh; overflow-y: scroll">
-      <li *ngFor="let probability of results.slice().reverse(); let index=index" class="list-group-item" [class.active]="index==0">
-        <div class="ml-1" style="display:inline">
-          {{probability.name}}
-        </div>
-        <span class="tag tag-default float-xs-left">
-            {{probability.weight}}
-        </span>
-      </li>
-    </ul>
-  </div>
-</div>
+  <button type="button" class="btn btn-danger" (click)="decide()">
+    FLIP
+  </button>
+</form>
