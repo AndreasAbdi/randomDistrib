@@ -1,43 +1,16 @@
-<h2>
-  list view
-</h2>
-<div class="decision-box">
-  <button (click)="decide()">
-  decide
-</button>
-  <div *ngIf="currentDecision" class="result-box">
-    {{currentDecision.name}}
-  </div>
+<div *ngIf="!distribution">
+  Please wait while the distribution is loaded.
 </div>
-<div class="probability-add">
-  <label> name </label>
-  <input #probabilityName type="text" ng-trim="true" />
-  <label> weight </label>
-  <input #probabilityChance type="number" min="0" max="100" />
-  <button (click)="
-        addProbability(
-            probabilityName.value,
-            probabilityChance.value);
-        probabilityName.value = '';
-        probabilityChance.value = '';
-        ">
-        Add 
-    </button>
-</div>
-<div class="dist-container">
-  <ul class="distribution">
-    <li *ngFor="let probability of distribution" class="slice">
-      <div class="information">
-        <div class="info-box">
-          <label> name:</label>
-          <span class="name">{{probability.name}}</span>
-        </div>
-        <div class="info-box">
-          <label> weight: </label>
-          <span class="chance">{{probability.probability}}</span>
-        </div>
-      </div>
-      <button (click)="removeProbability(probability)">X</button>
-    </li>
-  </ul>
-</div>
+<ul class="list-group" style="height: 100%; overflow-y: auto">
+  <li *ngFor="let slice of distribution" class="list-group-item">
+    <div class="ml-1" style="display:inline">
+      {{slice.name}}
+    </div>
+    <span class="tag tag-default float-xs-left">
+      {{slice.weight}}
+    </span>
+    <button type="button" class="close" aria-label="Close" (click)="removeSlice(probability)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+  </li>
+</ul>

@@ -42,8 +42,8 @@ export class SocketService {
         this.socket.emit('list');
     }
 
-    decide(probabilities: Probability[]): void {
-        this.socket.emit('decide', probabilities);
+    decide(): void {
+        this.socket.emit('decide');
     }
 
     listRooms(): void {

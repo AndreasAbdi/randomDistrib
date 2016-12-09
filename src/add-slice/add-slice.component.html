@@ -1,0 +1,11 @@
+<form onsubmit="return false" style="margin-top: 1vh; margin-bottom: 1vh">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" #name placeholder="Enter name" required/>
+  </div>
+  <div class="form-group">
+    <label for="weight">Weight</label>
+    <input type="number" min="0" max="100" class="form-control" #weight placeholder="Enter Weight" required/>
+  </div>
+  <button class="btn btn-primary btn-block" (click)="addSlice(name.value,weight.value); name.value='';weight.value=''">Add Slice</button>
+</form>

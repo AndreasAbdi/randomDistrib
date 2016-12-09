@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">
+    list of rooms
+  </div>
+  <div class="card-block">
+    <div *ngIf="!roomList">
+      Loading all the available rooms.
+    </div>
+    <ul class="list-group" style="height: 100%; overflow-y: auto">
+      <li *ngFor="let room of roomList" class="list-group-item clearfix" [class.active]="room == currentRoom">
+        {{room}}
+        <button type="button" class="btn btn-secondary btn-xs float-xs-right" (click)="joinOrCreate(room)">join</button>
+      </li>
+    </ul>
+  </div>
+</div>

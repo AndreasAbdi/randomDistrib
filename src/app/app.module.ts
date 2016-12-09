@@ -3,17 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
-import { DistributionService } from '../distribution-service/distribution.service'; 
-import { RandomService } from '../random-service/random.service';
+
 import { SocketService } from '../socket-service/socket.service';
+
 import { AppComponent } from './app.component';
 
-import { RawComponent } from '../raw/raw.component';
-import { ListComponent } from '../list/list.component';
+import { AddSliceComponent } from '../add-slice/add-slice.component';
+import { CreateRoomComponent } from '../create-room/create-room.component';
 import { GraphComponent } from '../graph/graph.component';
-import { WebsocketComponent } from '../websocket/websocket.component';
-
-import {ReversePipe } from '../websocket/reverse.pipe';
+import { HeaderComponent } from '../header/header.component';
+import { ListComponent } from '../list/list.component';
+import { RoomListComponent } from '../room-list/room-list.component';
+import { ResultComponent } from '../result/result.component';
 
 @NgModule({
   imports: [
@@ -24,15 +25,15 @@ import {ReversePipe } from '../websocket/reverse.pipe';
     ],
   declarations: [
     AppComponent,
-    RawComponent,
-    ListComponent,
+    AddSliceComponent,
+    CreateRoomComponent,
     GraphComponent,
-    WebsocketComponent,
-    ReversePipe
+    HeaderComponent,
+    ListComponent,
+    RoomListComponent,
+    ResultComponent
   ],
   providers: [
-    DistributionService,
-    RandomService,
     SocketService
   ],
   bootstrap: [AppComponent]
