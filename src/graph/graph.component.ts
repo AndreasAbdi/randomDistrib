@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
-import { DistributionService } from '../distribution-service/distribution.service';
-import  Probability  from '../data-type/probability';
+import { SocketService } from '../socket-service/socket.service';
+import Probability from '../data-type/probability';
 
 @Component({
     selector: 'graph-view',
@@ -43,7 +43,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
     }];
 
     constructor(
-        private distributionService: DistributionService,
+        private socketService: SocketService,
         private element: ElementRef) { }
 
     // events
@@ -55,36 +55,24 @@ export class GraphComponent implements OnInit, AfterViewInit {
         console.log(e);
     }
 
-    /**
-     * Call the distribution service to return current probability.
-     */
-    getDistribution(): void {
-        this.distributionService
-            .getDistribution()
-            .then(distribution => {
-                this.distribution = distribution;
-                this.doughnutChartLabels = distribution.map(value => value.name);
-                this.doughnutChartData = distribution.map(value => value.weight);
-
-            });
-    }
-
-    updateGraph(probability: Probability): void {
-        const chartClone = this.distribution.slice(0);
-
-        this.doughnutChartLabels = chartClone.map(value => value.name);
-        this.doughnutChartData = chartClone.map(value => value.weight);
-    }
-
     ngAfterViewInit() {
     }
 
     ngOnInit() {
-        this.distributionService.dataChangedObservable.subscribe(
-            probability => {
-                this.updateGraph(probability);
-            }
-        );
         this.getDistribution();
+    }
+
+    /**
+     * Call the distribution service to return current probability.
+     */
+    private getDistribution(): void {
+        this.socketService
+            .distributionListObservable
+            .subscribe(
+            (distribution) => {
+                this.distribution = distribution;
+                this.doughnutChartLabels = distribution.map(value => value.name);
+                this.doughnutChartData = distribution.map(value => value.weight);
+            });
     }
 }

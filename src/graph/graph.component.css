@@ -1,41 +1,24 @@
-#graph-component-container {
-  background-color: #d5d5d5;
-}
-
 #graph {
-  background-color: #d5d5d5;
   display: block;
 }
 
-.header {
-  padding: 1vmin, 1vmin, 1vmin, 2vmin;
-  width: 100%;
-}
-
 @media only screen and (min-width:300px) {
-  :host {
-  }
-
   .graph-container {
-    height: 40vh;
     width: 100vw;
+    height: 40vh;
   }
 }
 
 @media only screen and (min-width:700px) {
-  :host {
+   :host {
     float: left;
-    width: 70vw;
-    height: 90vh;
+    width: 100vw;
+    height: 40vh;
   }
-
   .graph-container {
-    width: 70vw;
-    height: 80vh;
-    margin-top: 10vh;
+    width: 100vw;
+    height: 40vh;
   }
-  
 }
 
-@media only screen and (min-width:1000px) {
-}
+@media only screen and (min-width:1000px) {}
