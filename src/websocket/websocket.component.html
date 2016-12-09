@@ -43,7 +43,7 @@
           <button class="btn btn-secondary" (click)="isCollapsed = !isCollapsed">Toggle Results</button>
         </div>
         <div class="card-block" [ngbCollapse]="isCollapsed">
-          <ul class="list-group result-view" style="height: 20vh; overflow-y: scroll">
+          <ul class="list-group result-view" style="height: 10vh; overflow-y: scroll">
             <li *ngFor="let probability of results.slice().reverse(); let index=index" class="list-group-item" [class.active]="index==0">
               <div class="ml-1" style="display:inline">
                 {{probability.name}}
@@ -54,6 +54,9 @@
             </li>
           </ul>
         </div>
+      </div>
+      <div>
+        current Room : {{currentRoom}}
       </div>
     </div>
     <div class="col-md-6 offset-md-1">

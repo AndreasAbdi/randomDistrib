@@ -10,6 +10,9 @@ import Probability from '../data-type/probability';
 export class WebsocketComponent implements OnInit {
     probabilities: Probability[];
     results: Probability[] = [];
+    currentRoom: string;
+    roomList: any[];
+
     public isCollapsed = false;
 
     constructor(private socketService: SocketService) { }
@@ -42,6 +45,24 @@ export class WebsocketComponent implements OnInit {
     ngOnInit() {
         this.subscribeToListObservable();
         this.subscribeToDecisionObservable();
+        this.subscribeToCurrentRoomObservable();
+        this.subscribeToRoomListObservable();
+    }
+
+    private subscribeToRoomListObservable(): void {
+        this.socketService.roomListObservable.subscribe(
+            (roomList) => {
+                this.roomList = roomList;
+            }
+        )
+    }
+
+    private subscribeToCurrentRoomObservable(): void {
+        this.socketService.currentRoomObservable.subscribe(
+            (currentRoomName) => {
+                this.currentRoom = currentRoomName;
+            }
+        )
     }
 
     private subscribeToDecisionObservable(): void {

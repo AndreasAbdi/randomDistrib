@@ -14,9 +14,13 @@ export class SocketService {
 
     private distributionResultSource = new Subject<Probability>();
     private distributionListSource = new Subject<Probability[]>();
-
     distributionListObservable = this.distributionListSource.asObservable();
     distributionResultObservable = this.distributionResultSource.asObservable();
+
+    private roomListSource = new Subject<string[]>();
+    private currentRoomSource = new Subject<string>();
+    currentRoomObservable = this.currentRoomSource.asObservable();
+    roomListObservable = this.roomListSource.asObservable();
 
     constructor(private http: Http) {
         this.init();
@@ -40,6 +44,14 @@ export class SocketService {
 
     decide(probabilities: Probability[]): void {
         this.socket.emit('decide', probabilities);
+    }
+
+    listRooms(): void {
+        this.socket.emit('list-room');
+    }
+
+    joinRoom(roomName: string): void {
+        this.socket.emit('join-room', roomName);
     }
 
     private init(): void {
@@ -66,7 +78,22 @@ export class SocketService {
         this.socket = io.connect(this.serverUrl);
         this.attachListListener();
         this.attachDecisionListener();
+        this.attachCurrentRoomListener();
+        this.attachRoomListListener();
         this.list();
+    }
+
+    private attachRoomListListener(): void {
+        this.socket.on('list-room', (roomNames) => {
+            this.currentRoomSource.next(roomNames);
+        });
+    }
+
+
+    private attachCurrentRoomListener(): void {
+        this.socket.on('update-room', (roomName) => {
+            this.currentRoomSource.next(roomName);
+        });
     }
 
     private attachListListener(): void {
