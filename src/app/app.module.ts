@@ -15,6 +15,7 @@ import { HeaderComponent } from '../header/header.component';
 import { ListComponent } from '../list/list.component';
 import { RoomListComponent } from '../room-list/room-list.component';
 import { ResultComponent } from '../result/result.component';
+import { JumbotronComponent } from '../jumbotron/jumbotron.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { ResultComponent } from '../result/result.component';
     CreateRoomComponent,
     GraphComponent,
     HeaderComponent,
+    JumbotronComponent,
     ListComponent,
     RoomListComponent,
     ResultComponent

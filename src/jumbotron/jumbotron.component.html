@@ -1,0 +1,10 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron jumbotron-fluid" >
+    <h1 class="display-1 text-xs-center"  [@resultState]="resultState">
+        <div *ngIf="result">{{result.name}}</div>
+        <button class="btn btn-primary" (click)="toggle()">To weight distribution</button>
+    </h1>
+    <div style="height:40vh" id="image-container" [@coinState]="isFlipped" >
+          <graph-view ></graph-view>
+    </div>
+</div>
