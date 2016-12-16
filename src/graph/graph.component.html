@@ -1,4 +1,4 @@
-<div class="graph-container">
+<div class="graph-container mx-auto">
   <canvas baseChart id="graph" [(data)]="doughnutChartData" [(labels)]="doughnutChartLabels" [chartType]="doughnutChartType"
     [options]="options" [colors]="colors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
 </div>

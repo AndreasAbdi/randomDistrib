@@ -4,7 +4,7 @@
 
 @media only screen and (min-width:300px) {
   .graph-container {
-    width: 100vw;
+    width: 90vw;
     height: 40vh;
   }
 }
@@ -16,7 +16,7 @@
     height: 40vh;
   }
   .graph-container {
-    width: 93vw;
+    width: 90vw;
     height: 40vh;
   }
 }

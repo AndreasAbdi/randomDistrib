@@ -7,12 +7,10 @@
           <graph-view></graph-view>
         </div>
         <p style="margin-top:3vh; width:300px;" class="mx-auto">
-          <button class="flip-button btn btn-lg btn-block btn-primary" (click)="decide();">
+          <button class="flip-button btn btn-lg  btn-primary" (click)="decide();">
             FLIP
             </button>
-        </p>
-        <p style="margin-top:3vh; width:300px;" class="mx-auto" *ngIf="resultExists">
-          <button class="flip-button btn btn-lg btn-block btn-primary" (click)="t.select('result');">
+          <button class="flip-button btn btn-lg  btn-primary" [class.disabled]="!resultExists" (click)="t.select('result');">
             SEE RESULT
             </button>
         </p>
