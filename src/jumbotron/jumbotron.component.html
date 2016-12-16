@@ -6,15 +6,21 @@
         <div style="height:40vh; width: 300px" id="image-container" [@coinState]="isFlipped">
           <graph-view></graph-view>
         </div>
-        <p style="margin-top:5vh; width:300px;" class="mx-auto">
-          <button  class="flip-button btn btn-lg btn-block btn-primary" (click)="decide();t.select('result')">FLIP</button>
+        <p style="margin-top:3vh; width:300px;" class="mx-auto">
+          <button class="flip-button btn btn-lg btn-block btn-primary" (click)="decide();">
+            FLIP
+            </button>
+        </p>
+        <p style="margin-top:3vh; width:300px;" class="mx-auto" *ngIf="resultExists">
+          <button class="flip-button btn btn-lg btn-block btn-primary" (click)="t.select('result');">
+            SEE RESULT
+            </button>
         </p>
       </template>
     </ngb-tab>
     <ngb-tab id="result" [disabled]="!resultExists">
       <template ngbTabTitle>result</template>
       <template ngbTabContent>
-
         <h1 class="display-1 text-xs-center">
           <div *ngIf="!result">flip coin first</div>
           <div *ngIf="result">{{result.name}}</div>
