@@ -1,10 +1,30 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron jumbotron-fluid" >
-    <h1 class="display-1 text-xs-center"  [@resultState]="resultState">
-        <div *ngIf="result">{{result.name}}</div>
-        <button class="btn btn-primary" (click)="toggle()">To weight distribution</button>
-    </h1>
-    <div style="height:40vh" id="image-container" [@coinState]="isFlipped" >
-          <graph-view ></graph-view>
-    </div>
+<div class="jumbotron ">
+  <ngb-tabset #t="ngbTabset">
+    <ngb-tab title="Graph">
+      <template ngbTabContent>
+        <div style="height:40vh; width: 300px" id="image-container" [@coinState]="isFlipped">
+          <graph-view></graph-view>
+        </div>
+        <p style="margin-top:5vh; width:300px;" class="mx-auto">
+          <button  class="flip-button btn btn-lg btn-block btn-primary" (click)="decide();t.select('result')">FLIP</button>
+        </p>
+      </template>
+    </ngb-tab>
+    <ngb-tab id="result" [disabled]="!resultExists">
+      <template ngbTabTitle>result</template>
+      <template ngbTabContent>
+
+        <h1 class="display-1 text-xs-center">
+          <div *ngIf="!result">flip coin first</div>
+          <div *ngIf="result">{{result.name}}</div>
+        </h1>
+      </template>
+    </ngb-tab>
+    <ngb-tab title="History" [disabled]="!resultExists">
+      <template ngbTabContent>
+        <results-view></results-view>
+      </template>
+    </ngb-tab>
+  </ngb-tabset>
 </div>

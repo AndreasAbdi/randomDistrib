@@ -1,0 +1,35 @@
+.grid {
+  height: 40vh;
+}
+
+.gridBox {
+  float:left;
+  position:relative;
+  width: 5vh;
+  padding-bottom: 5vh;
+  margin: 1vh;
+  overflow:hidden;
+  border-radius: 5px;
+}
+
+.content {
+  position:absolute;
+  height: 80%;
+  width: 90%;
+  padding: 10% 5%;
+  color: white;
+  text-align: center;
+}
+
+.table{
+    display:table;
+    height:100%;
+    width:100%;
+}
+
+.table-cell{
+    display:table-cell;
+    vertical-align:middle;
+    height:100%;
+    width:100%;
+}

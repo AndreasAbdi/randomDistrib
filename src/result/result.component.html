@@ -1,15 +1,11 @@
-<form class="form-inline float-xs-right">
-  <div ngbDropdown class="d-inline-block" *ngIf="currentResult">
-    <button type="button" class="btn btn-danger" id="dropdownMenu1" ngbDropdownToggle>
-        {{currentResult.name}}
-      </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <div class="dropdown-item" *ngFor="let result of results">
-        {{result.name}}
+<div class="grid">
+  <div *ngFor="let result of results" class="gridBox bg-primary">
+    <div class="content">
+      <div class="table">
+        <div class="table-cell">
+          {{result.name.charAt(0)}}
+        </div>
       </div>
     </div>
   </div>
-  <button type="button" class="btn btn-danger" (click)="decide()">
-    FLIP
-  </button>
-</form>
+</div>

@@ -24,6 +24,10 @@ export class SocketService {
   currentRoomObservable = this.currentRoomSource.asObservable();
   roomListObservable = this.roomListSource.asObservable();
 
+  probabilityHistory: Probability[] = [];
+
+  private isActive: boolean = false;
+
   constructor(private http: Http) {
     this.init();
   }
@@ -55,6 +59,10 @@ export class SocketService {
   joinRoom(roomName: string): void {
     this.socket.emit('join-room', roomName);
     this.list();
+  }
+
+  activated(): boolean {
+    return this.isActive;
   }
 
   private init(): void {
@@ -94,6 +102,7 @@ export class SocketService {
     this.list();
     this.listRooms();
     this.joinRoom('default');
+    this.isActive = true;
   }
 
   private attachRoomListListener(): void {
@@ -117,6 +126,7 @@ export class SocketService {
 
   private attachDecisionListener(): void {
     this.socket.on('decision', (probability) => {
+      this.probabilityHistory.push(probability);
       this.distributionResultSource.next(probability);
     });
   }
