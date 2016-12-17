@@ -3,13 +3,6 @@
 }
 
 @media only screen and (min-width:300px) {
-  .graph-container {
-    width: 90vw;
-    height: 40vh;
-  }
-}
-
-@media only screen and (min-width:700px) {
    :host {
     float: left;
     width: 100%;
@@ -19,6 +12,10 @@
     width: 90vw;
     height: 40vh;
   }
+}
+
+@media only screen and (min-width:700px) {
+
 }
 
 @media only screen and (min-width:1000px) {}

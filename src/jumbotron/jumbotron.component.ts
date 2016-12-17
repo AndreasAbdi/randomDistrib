@@ -7,6 +7,19 @@ import Probability from '../data-type/probability';
   templateUrl: './jumbotron.component.html',
   styleUrls: ['./jumbotron.component.css'],
   animations: [
+    trigger('resultState', [
+      state('active', style({
+      })),
+      state('inactive', style({
+      })),
+      transition(':enter',
+        animate(2500, keyframes([
+          style({ opacity: 0, transform: 'translateX(-100%)', offset: 0}),
+          style({ opacity: 0, transform: 'translateX(-100%)', offset: 0.8}),
+          style({ opacity: 1, transform: 'translateX(0%)', offset: 1})
+        ]))
+      ),
+    ]),
     trigger('coinState', [
       state('active', style({
       })),
