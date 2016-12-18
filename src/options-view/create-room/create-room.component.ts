@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SocketService } from '../socket-service/socket.service';
+import { SocketService } from '../../socket-service/socket.service';
 
 @Component({
     selector: 'create-room',

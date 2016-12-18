@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SocketService } from '../socket-service/socket.service';
+import { SocketService } from '../../socket-service/socket.service';
 
-import Probability from '../data-type/probability';
+import Probability from '../../data-type/probability';
 
 @Component({
     selector: 'list-view',
@@ -10,7 +10,7 @@ import Probability from '../data-type/probability';
 })
 
 /**
- * lists the probabilities assigned to random generator. 
+ * lists the probabilities assigned to random generator.
  */
 export class ListComponent implements OnInit {
     private distribution: Probability[];

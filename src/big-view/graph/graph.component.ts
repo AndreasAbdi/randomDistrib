@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, AfterViewChecked, ElementRef } from '@angular/core';
-import { SocketService } from '../socket-service/socket.service';
-import Probability from '../data-type/probability';
+import { SocketService } from '../../socket-service/socket.service';
+import Probability from '../../data-type/probability';
 
 @Component({
   selector: 'graph-view',

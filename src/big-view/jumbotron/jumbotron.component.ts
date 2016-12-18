@@ -1,6 +1,6 @@
 import { Component, OnInit, trigger, state, style, transition, animate, keyframes } from '@angular/core';
-import { SocketService } from '../socket-service/socket.service';
-import Probability from '../data-type/probability';
+import { SocketService } from '../../socket-service/socket.service';
+import Probability from '../../data-type/probability';
 
 @Component({
   selector: 'jumbotron-view',

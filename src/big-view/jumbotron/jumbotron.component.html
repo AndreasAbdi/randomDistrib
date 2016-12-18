@@ -21,8 +21,7 @@
         </div>
       </template>
     </ngb-tab>
-    <ngb-tab id="result" [disabled]="!resultExists">
-      <template ngbTabTitle>result</template>
+    <ngb-tab title="Result" id="result" [disabled]="!resultExists">
       <template ngbTabContent>
         <h1 class="display-1 text-xs-center">
           <div *ngIf="!result">flip coin first</div>
