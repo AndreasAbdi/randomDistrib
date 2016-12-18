@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">welcome <b>{{currentUsername}}</b></h4>
+    <div class="card-text">
+      <ul class="list-group">
+        <li class="list-group-item" [class.active]="username == currentUsername "*ngFor="let username of usernames">
+          {{username}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

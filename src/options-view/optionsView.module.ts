@@ -6,7 +6,7 @@ import { RoomListComponent } from './room-list/room-list.component';
 import { AddSliceComponent } from './add-slice/add-slice.component';
 import { CreateRoomComponent } from './create-room/create-room.component';
 import { OptionsViewComponent } from './options-view/options-view.component';
-
+import { UserComponent } from './user/user.component';
 @NgModule({
   imports: [BrowserModule],
   exports: [OptionsViewComponent],
@@ -15,7 +15,8 @@ import { OptionsViewComponent } from './options-view/options-view.component';
     RoomListComponent,
     AddSliceComponent,
     CreateRoomComponent,
-    OptionsViewComponent
+    OptionsViewComponent,
+    UserComponent
   ]
 })
 export class OptionsViewModule { }

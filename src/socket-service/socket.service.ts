@@ -24,6 +24,12 @@ export class SocketService {
   currentRoomObservable = this.currentRoomSource.asObservable();
   roomListObservable = this.roomListSource.asObservable();
 
+  private userNameSource = new Subject<string>();
+  userNameObservable = this.userNameSource.asObservable();
+
+  private userNamesSource = new Subject<string[]>();
+  userNamesObservable = this.userNamesSource.asObservable();
+
   probabilityHistory: Probability[] = [];
 
   private isActive: boolean = false;
@@ -61,6 +67,18 @@ export class SocketService {
     this.list();
   }
 
+  getName(): void {
+    this.socket.emit('get-name');
+  }
+
+  getNames(): void {
+    this.socket.emit('get-names');
+  }
+
+  setName(userName: string): void {
+    this.socket.emit('set-name', userName);
+  }
+
   activated(): boolean {
     return this.isActive;
   }
@@ -96,13 +114,30 @@ export class SocketService {
     this.attachDecisionListener();
     this.attachCurrentRoomListener();
     this.attachRoomListListener();
+    this.attachUserNameListener();
+    this.attachUserNamesListener();
   }
 
   private updateData(): void {
     this.list();
     this.listRooms();
+    this.getName();
+    this.getNames();
     this.joinRoom('default');
     this.isActive = true;
+  }
+
+  private attachUserNameListener(): void {
+    this.socket.on('update-name', (username) => {
+      this.userNameSource.next(username);
+    });
+  }
+
+
+  private attachUserNamesListener(): void {
+    this.socket.on('update-names', (usernames) => {
+      this.userNamesSource.next(usernames);
+    });
   }
 
   private attachRoomListListener(): void {
