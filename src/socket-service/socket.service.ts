@@ -75,6 +75,10 @@ export class SocketService {
     this.socket.emit('get-names');
   }
 
+  getNamesInRoom(roomName: string): void {
+    this.socket.emit('list-room-names', roomName);
+  }
+
   setName(userName: string): void {
     this.socket.emit('set-name', userName);
   }
@@ -124,6 +128,7 @@ export class SocketService {
     this.getName();
     this.getNames();
     this.joinRoom('default');
+    this.getNamesInRoom('default');
     this.isActive = true;
   }
 

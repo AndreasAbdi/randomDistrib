@@ -7,8 +7,14 @@ import { SocketService } from '../../socket-service/socket.service';
 })
 export class UserComponent implements OnInit {
   currentUsername: string = '';
-  usernames: string[] = ['hi', 'there'];
+  usernames: string[] = [];
   constructor(private socketService: SocketService) { }
+
+  setName(name: string) {
+    this.socketService.setName(name);
+    this.socketService.getName();
+    this.socketService.getNames();
+  }
 
   ngOnInit() {
     this.socketService.userNameObservable.subscribe(
@@ -22,4 +28,5 @@ export class UserComponent implements OnInit {
       }
     );
   }
+
 }

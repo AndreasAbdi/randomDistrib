@@ -1,9 +1,20 @@
 <div class="card">
   <div class="card-block">
-    <h4 class="card-title">welcome <b>{{currentUsername}}</b></h4>
+    <h4 class="card-title">Welcome <span class="tag tag-default">{{currentUsername}}</span></h4>
     <div class="card-text">
+      <form class="form-inline">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" #inputName placeholder="Write name here">
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="setName(inputName.value)">
+          Set Name
+        </button>
+      </form>
+      <h4>Users</h4>
       <ul class="list-group">
-        <li class="list-group-item" [class.active]="username == currentUsername "*ngFor="let username of usernames">
+        <li class="list-group-item" [class.active]="username == currentUsername " *ngFor="let username of usernames">
           {{username}}
         </li>
       </ul>
