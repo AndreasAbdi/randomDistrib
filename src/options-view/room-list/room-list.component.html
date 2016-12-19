@@ -7,7 +7,7 @@
       Loading all the available rooms.
     </div>
     <ul class="list-group" style="height: 100%; overflow-y: auto">
-      <li *ngFor="let room of roomList" class="list-group-item clearfix" [class.active]="room == currentRoom">
+      <li *ngFor="let room of roomList" class="list-group-item clearfix" [class.bg-info]="room == currentRoom">
         {{room}}
         <button type="button" class="btn btn-secondary btn-xs float-xs-right" [class.disabled]="room === currentRoom" (click)="joinOrCreate(room)">join</button>
       </li>

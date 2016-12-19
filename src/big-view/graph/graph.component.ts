@@ -66,7 +66,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
       '#FFDE6E'];
     let backgroundColors = Array(100)
       .fill(1)
-      .map(() => randomColors[Math.floor(Math.random() * randomColors.length)]);
+      .map((x, i) => randomColors[Math.floor(Math.random() * randomColors.length)]);
 
     this.colors = [{
       backgroundColor: backgroundColors
