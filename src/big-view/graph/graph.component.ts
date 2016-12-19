@@ -25,22 +25,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
     maintainAspectRatio: false
   };
 
-  public colors = [{
-    backgroundColor: [
-      '#96858F',
-      '#6D7993',
-      '#9099A2',
-      '#a4add3',
-      '#F2FF00',
-      '#8800FF',
-      '#2FFF8A',
-      '#FF402F',
-      '#40A2FF',
-      '#FFB740',
-      '#6E80FF',
-      '#FFDE6E'
-    ]
-  }];
+  public colors = [{ backgroundColor: [] }];
 
   constructor(
     private socketService: SocketService,
@@ -59,15 +44,35 @@ export class GraphComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.setColors();
     this.getDistribution();
     if (this.socketService.activated()) {
       this.socketService.list();
     }
   }
 
-  /**
-   * Call the distribution service to return current probability.
-   */
+  private setColors(): void {
+    let randomColors = ['#96858F',
+      '#6D7993',
+      '#9099A2',
+      '#a4add3',
+      '#F2FF00',
+      '#8800FF',
+      '#2FFF8A',
+      '#FF402F',
+      '#40A2FF',
+      '#FFB740',
+      '#6E80FF',
+      '#FFDE6E'];
+    let backgroundColors = Array(100)
+      .fill(1)
+      .map(() => randomColors[Math.floor(Math.random() * randomColors.length)]);
+
+    this.colors = [{
+      backgroundColor: backgroundColors
+    }];
+  };
+
   private getDistribution(): void {
     this.socketService
       .distributionListObservable
