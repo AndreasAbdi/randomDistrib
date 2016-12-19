@@ -123,12 +123,12 @@ export class SocketService {
   }
 
   private updateData(): void {
-    this.list();
+    this.joinRoom('default');
+    this.getNamesInRoom('default');
     this.listRooms();
     this.getName();
     this.getNames();
-    this.joinRoom('default');
-    this.getNamesInRoom('default');
+    this.list();
     this.isActive = true;
   }
 
