@@ -10,7 +10,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   imports: [ChartsModule, NgbModule, BrowserModule],
   exports: [JumbotronComponent],
-  declarations: [ResultComponent, JumbotronComponent, GraphComponent]
+  declarations: [ResultComponent, GraphComponent, JumbotronComponent]
 })
 export class BigViewModule { }
 

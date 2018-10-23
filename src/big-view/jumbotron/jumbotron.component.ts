@@ -1,9 +1,10 @@
-import { Component, OnInit, trigger, state, style, transition, animate, keyframes } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { SocketService } from '../../socket-service/socket.service';
 import Probability from '../../data-type/probability';
 
 @Component({
-  selector: 'jumbotron-view',
+  selector: 'app-jumbotron-view',
   templateUrl: './jumbotron.component.html',
   styleUrls: ['./jumbotron.component.css'],
   animations: [
@@ -59,10 +60,10 @@ export class JumbotronComponent implements OnInit {
   }
   toggle() {
     this.toggleStates();
-  };
+  }
 
-  private toggleObject(state: String): String {
-    return state === 'active' ? 'inactive' : 'active';
+  private toggleObject(objectState: String): String {
+    return objectState === 'active' ? 'inactive' : 'active';
   }
 
   private toggleStates() {

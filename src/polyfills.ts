@@ -19,5 +19,8 @@ import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
 
 import 'reflect-metadata/Reflect.js';
-import 'systemjs/dist/system.src.js';
+// import 'systemjs/dist/system.src.js';
 import 'chart.js/dist/Chart.bundle.min.js';
+
+// Fix for the socket.io client in https://github.com/socketio/socket.io-client/issues/1166
+(window as any).global = window;

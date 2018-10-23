@@ -6,7 +6,7 @@ import { environment } from '../environments/environment';
 
 import { Observable } from 'rxjs/Observable';
 import '../shared/rxjs-operators';
-import Probability from '../data-type/Probability';
+import Probability from '../data-type/probability';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -32,7 +32,7 @@ export class SocketService {
 
   probabilityHistory: Probability[] = [];
 
-  private isActive: boolean = false;
+  private isActive = false;
 
   constructor(private http: Http) {
     this.init();

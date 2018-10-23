@@ -3,7 +3,7 @@ import { SocketService } from '../../socket-service/socket.service';
 import Probability from '../../data-type/probability';
 
 @Component({
-  selector: 'graph-view',
+  selector: 'app-graph-view',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.css']
 })
@@ -18,7 +18,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
   public doughnutChartLabels: string[] = [];
   public doughnutChartData: number[] = [];
 
-  public doughnutChartType: string = 'doughnut';
+  public doughnutChartType = 'doughnut';
 
   public options = {
     responsive: true,
@@ -52,7 +52,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
   }
 
   private setColors(): void {
-    let randomColors = ['#96858F',
+    const randomColors = ['#96858F',
       '#6D7993',
       '#9099A2',
       '#a4add3',
@@ -64,14 +64,14 @@ export class GraphComponent implements OnInit, AfterViewInit {
       '#FFB740',
       '#6E80FF',
       '#FFDE6E'];
-    let backgroundColors = Array(100)
+    const backgroundColors = Array(100)
       .fill(1)
       .map((x, i) => randomColors[Math.floor(Math.random() * randomColors.length)]);
 
     this.colors = [{
       backgroundColor: backgroundColors
     }];
-  };
+  }
 
   private getDistribution(): void {
     this.socketService
