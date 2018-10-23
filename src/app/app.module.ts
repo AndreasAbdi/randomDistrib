@@ -1,32 +1,18 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpModule } from '@angular/http';
+import { NgModule } from '@angular/core';
 
-import { SocketService } from '../socket-service/socket.service';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from '../header/header.component';
-
-import { BigViewModule } from '../big-view/bigView.module';
-import { OptionsViewModule } from '../options-view/optionsView.module';
 @NgModule({
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
-    HttpModule,
-    NgbModule.forRoot(),
-    BigViewModule,
-    OptionsViewModule
-    ],
-  declarations: [
-    AppComponent,
-    HeaderComponent
+    AppRoutingModule
   ],
-  providers: [
-    SocketService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }

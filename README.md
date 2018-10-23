@@ -1,20 +1,21 @@
 # Random Distrib source
+
 <!--- [![Build Status][travis-badge]][travis-badge-url] -->
 
-Frontend based on typescript, and angular. 
+Frontend based on typescript, and angular.
 
-Generate random selection based on some distribution of events. 
+Generate random selection based on some distribution of events.
 
 ## Prerequisites
 
-Requires npm and nodeJs. 
+Requires npm and nodeJs.
 
 ## How to run
 
 go to shell and run the following commands.
 
 ```bash
-   npm install 
+   npm install
    npm start
 ```
 
@@ -26,5 +27,6 @@ a[travis-badge]: https://travis-ci.org/angular/quickstart.svg?branch=master
 a[travis-badge-url]: https://travis-ci.org/angular/quickstart
 -->
 
-## license 
+## license
+
 MIT © [Andreas Abdi](https://github.com/AndreasAbdi)
