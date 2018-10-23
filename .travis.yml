@@ -1,20 +1,12 @@
-dist: trusty
 sudo: required
-language: node_js
-node_js:
-  - "5"
-os:
-  - linux
-env:
-  global:
-    - DBUS_SESSION_BUS_ADDRESS=/dev/null
-    - DISPLAY=:99.0
-    - CHROME_BIN=chromium-browser
-before_script:
-  - sh -e /etc/init.d/xvfb start
-install:
-  - npm install
+
+services:
+  - docker 
+
+before_install:
+  - docker build -t aa/angular-frontend --build-arg configuration=""
+  - docker images
+
 script:
-  - npm run lint
-  - npm run test-once
-  - npm run e2e
+  - docker run -d -p 80:80 aa/angular-frontend
+  - docker ps -a
