@@ -22,6 +22,7 @@
     "url": "https://github.com/AndreasAbdi/randomDistrib/issues"
   },
   "dependencies": {
+    "@angular/animations": "^6.1.10",
     "@angular/common": "^6.1.10",
     "@angular/compiler": "^6.1.10",
     "@angular/core": "^6.1.10",

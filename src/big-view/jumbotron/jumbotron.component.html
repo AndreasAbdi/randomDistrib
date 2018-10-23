@@ -1,38 +1,39 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron ">
-  <ngb-tabset #t="ngbTabset">
-    <ngb-tab title="Graph">
-      <template ngbTabContent>
-        <div style="height:40vh" id="image-container" [@coinState]="isFlipped">
-          <graph-view></graph-view>
-        </div>
-        <div class="text-md-center button-container">
-          <div class="btn-group btn-group-large ">
-            <button class="flip-button btn btn-primary" (click)="decide();">
-              FLIP
-            </button>
-            <button class="flip-button btn btn-primary " [class.disabled]="!resultExists" (click)="t.select('result');">
-              SEE RESULT
-            </button>
-            <button class="result-box btn text-xs-center bg-info " *ngIf="result" [@resultState]="isFlipped">
-              {{result.name}}
-            </button>
+    <ngb-tabset #t="ngbTabset">
+      <ngb-tab title="Graph">
+        <ng-template ngbTabContent>
+          <div style="height:40vh" id="image-container" [@coinState]="isFlipped">
+            <app-graph-view></app-graph-view>
           </div>
-        </div>
-      </template>
-    </ngb-tab>
-    <ngb-tab title="Result" id="result" [disabled]="!resultExists">
-      <template ngbTabContent>
-        <h1 class="display-1 text-xs-center">
-          <div *ngIf="!result">flip coin first</div>
-          <div *ngIf="result">{{result.name}}</div>
-        </h1>
-      </template>
-    </ngb-tab>
-    <ngb-tab title="History" [disabled]="!resultExists">
-      <template ngbTabContent>
-        <results-view></results-view>
-      </template>
-    </ngb-tab>
-  </ngb-tabset>
-  </div>
+          <div class="text-md-center button-container">
+            <div class="btn-group btn-group-large ">
+              <button class="flip-button btn btn-primary" (click)="decide();">
+                FLIP
+              </button>
+              <button class="flip-button btn btn-primary " [class.disabled]="!resultExists" (click)="t.select('result');">
+                SEE RESULT
+              </button>
+              <button class="result-box btn text-xs-center bg-info " *ngIf="result" [@resultState]="isFlipped">
+                {{result.name}}
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Result" id="result" [disabled]="!resultExists">
+        <ng-template ngbTabContent>
+          <h1 class="display-1 text-xs-center">
+            <div *ngIf="!result">flip coin first</div>
+            <div *ngIf="result">{{result.name}}</div>
+          </h1>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="History" [disabled]="!resultExists">
+        <ng-template ngbTabContent>
+          <app-results-view></app-results-view>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+    </div>
+  
