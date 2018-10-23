@@ -13,7 +13,7 @@ import Probability from '../../data-type/probability';
  * lists the probabilities assigned to random generator.
  */
 export class ListComponent implements OnInit {
-    private distribution: Probability[];
+    distribution: Probability[];
 
     constructor(
         private socketService: SocketService) { }
